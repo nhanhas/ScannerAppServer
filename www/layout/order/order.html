@@ -1,0 +1,85 @@
+<!-- toolbar -->
+<toolbar on-add="onAddNewProduct()" on-reset="onResetAll()"></toolbar>
+
+<!-- Include the  content to show -->
+<div class="Order">
+
+    <div class="panel order-view">
+        <div class="row text-center">
+
+            <!-- table of products -->
+            <div class="col-xs-12 grid-row text-center">
+
+                <div class="header">Products</div>
+
+                <!--<table class="grid" cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in productsList">
+                            <td>{{ product.ref }}</td>
+                            <td>{{ product.qtt }}</td>
+                            <td>{{ product.price }}</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>-->
+
+                <div class="grid">
+
+                    <!-- header -->
+                    <div class="row header-th-group">
+
+                        <div class="col-xs-6 header-th header-ref">Code</div>
+                        <div class="col-xs-6 header-th header-qtt">Quantity</div>
+                    </div>
+
+                    <!-- -->
+                    <div class="row product-item" ng-repeat="product in productsList">
+
+                        <div class="col-xs-5 product-columns"><span>{{product.ref}}</span></div>
+                        <div class="col-xs-5 product-columns"><span>{{product.qtt}}</span></div>
+                        <div class="col-xs-2 product-columns"><i class="fa fa-trash"></i></div>
+
+                    </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            <!-- table of products
+            <div class="col-xs-12 bar-code">
+
+                <div id="yourElement" style="width: 250px; height: 250px;"></div>
+
+            </div>
+            -->
+
+            <!-- table of products -->
+            <div class="col-xs-8 col-xs-offset-2 bar-code">
+                aqui input
+                <input id="input-addon" type="file" accept="image/*" capture="camera"
+                       onchange="angular.element(this).scope().imageUploaded(this)"/>
+
+                <div id="interactive" class="viewport"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
