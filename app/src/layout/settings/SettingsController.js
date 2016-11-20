@@ -1,5 +1,5 @@
 app
-    .controller('SettingsController', ['$scope', '$location','$rootScope', function($scope, $location,$rootScope) {
+    .controller('SettingsController', ['$scope', '$location','$rootScope', '$http',function($scope, $location,$rootScope, $http) {
         //initialize view vars
         $scope.backendUrl = '';
         $scope.appId = '';
@@ -53,11 +53,23 @@ app
             $scope.appId = '';
             $scope.username = '';
             $scope.password = '';
-        }
+        };
 
         //test Connection to drive
         $scope.testConnection = function(){
-            console.log("tezting...")
+
+            var formData = {};
+
+            $http.post('/api/testconnection', $scope.credentials)
+                .success(function(data) {
+                    $scope.formData = {}; // clear the form so our user is ready to enter another
+                    $scope.todos = data;
+                    console.log(data);
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+                });
+
         }
 
     }]);
