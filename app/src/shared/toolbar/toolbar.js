@@ -4,9 +4,11 @@ app
         return {
             restrict: 'EA',
             scope: {
-                viewSelected:'=',
-                onAdd:'&',
-                onReset:'&'
+                viewSelected:'@',
+                onAdd:'&?',
+                onReset:'&?',
+                onResetSettings:'&?',
+                onTestConnection:'&?'
             },
             templateUrl: 'shared/toolbar/toolbar.html',
 
@@ -16,6 +18,9 @@ app
                     location.path('/home');
                 };
 
+                /**
+                 * Orders
+                 */
                 scope.addNewProduct = function(){
                     if(scope.onAdd){
                         scope.onAdd();
@@ -25,6 +30,23 @@ app
                 scope.onResetAll = function(){
                     if(scope.onReset){
                         scope.onReset();
+                    }
+                };
+
+
+                /**
+                 * Settings
+                 */
+
+                scope.resetSettings = function(){
+                    if(scope.onResetSettings){
+                        scope.onResetSettings();
+                    }
+                };
+
+                scope.testConnection = function(){
+                    if(scope.onTestConnection){
+                        scope.onTestConnection();
                     }
                 };
 

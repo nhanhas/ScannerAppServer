@@ -1,6 +1,6 @@
 .Order {
   left: 0;
-  margin-left: 100px;
+  margin-left: 70px;
   -webkit-transition: all linear 0.5s;
   transition: all linear 0.5s;
   position: absolute;
@@ -16,7 +16,8 @@
     height: 100%;
     position: absolute;
     width: 100%;
-    padding-top: 15px; }
+    padding-top: 15px;
+    overflow: auto; }
   .Order .panel {
     transition: all 0.5s cubic-bezier(.5, -0.005, 0.2, 1) !important;
     -webkit-transition: all 0.5s cubic-bezier(.5, -0.005, 0.2, 1) !important;
@@ -45,6 +46,8 @@
         position: absolute;
         top: 0;
         left: 0; }
+  .Order .order-hint {
+    margin-top: 30px; }
   .Order .grid-row .header {
     background-color: #107360;
     color: white;

@@ -16,9 +16,9 @@ app
                     templateUrl: 'layout/order/order.html',
                     controller: 'OrderController'
                 }).
-                when('/view2', {
-                    templateUrl: 'layout/view2/view2.html',
-                    controller: 'View2Controller'
+                when('/settings', {
+                    templateUrl: 'layout/settings/settings.html',
+                    controller: 'SettingsController'
                 }).
                 otherwise({
                     redirectTo: '/login'

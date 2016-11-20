@@ -1,0 +1,90 @@
+<!-- toolbar -->
+<toolbar view-selected="settings" on-reset-settings="resetConnection()" on-test-connection="testConnection()"></toolbar>
+
+<!-- Include the  content to show -->
+<div class="Settings">
+
+    <div class="panel settings-view">
+
+        <div class="row text-center" ng-show="!credentials">
+
+            <!-- Hint -->
+            <div class="col-xs-12 ">
+                <h3>Drive FX Connection</h3>
+                <p>Fulfill your Drive FX credentials</p>
+                <p>and then</p>
+                <p>Press "Connect"</p>
+
+            </div>
+
+            <!-- backend Url -->
+            <div class="col-xs-12 backend-url">
+
+                <div class="input-group">
+                    <label class="input-group-addon"><i class="fa fa-cogs"></i></label>
+                    <input type="text" class="form-control" placeholder="Drive FX Url" aria-describedby="basic-addon1" ng-model="backendUrl">
+                </div>
+
+            </div>
+
+            <!-- Drive App ID -->
+            <div class="col-xs-12 app-id">
+
+                <div class="input-group">
+                    <label class="input-group-addon"><i class="fa fa-key"></i></label>
+                    <input type="text" class="form-control" placeholder="Drive FX AppID" aria-describedby="basic-addon1" ng-model="appId">
+                </div>
+
+            </div>
+
+
+            <!-- username -->
+            <div class="col-xs-12 username">
+
+                <div class="input-group">
+                    <label class="input-group-addon"><i class="fa fa-user"></i></label>
+                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" ng-model="username">
+                </div>
+
+            </div>
+
+            <!-- password -->
+            <div class="col-xs-12 password">
+
+                <div class="input-group">
+                    <label class="input-group-addon"><i class="fa fa-lock"></i></label>
+                    <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" ng-model="password">
+                </div>
+
+            </div>
+
+            <!-- login now! -->
+            <div class="col-xs-12 connect">
+
+                <button type="button" class="btn btn-default btn-lg" ng-click="connect()">
+                    Connect
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row text-center" ng-show="credentials">
+            <!-- Hint -->
+            <div class="col-xs-12 ">
+                <h3>Drive FX Connection</h3>
+                <p>Your credentials are saved!</p>
+                <p>You can now test your connection</p>
+                <h3>Or</h3>
+                <p>Use your application right away!</p>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+

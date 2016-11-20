@@ -9,7 +9,7 @@ app
         };
 
         $scope.setupDrive = function(){
-
+            $location.path('/settings')
         };
 
     }]);

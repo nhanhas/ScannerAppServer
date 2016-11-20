@@ -1,22 +1,62 @@
 app
-    .controller('OrderController', ['$scope', '$location','$rootScope', function($scope, $location,$rootScope) {
+    .controller('OrderController', ['$scope', '$location','$rootScope', '$timeout', function($scope, $location,$rootScope, $timeout) {
 
 
         //Products Collection
         $scope.productsList = [];
 
         //for test
-        $scope.product1 = {ref: '1231231241', qtt:1, price:'12.00'};
+        /*$scope.product1 = {ref: '1231231241', qtt:1, price:'12.00'};
         $scope.product2 = {ref: '4125125123', qtt:2, price:'42.00'};
         $scope.productsList.push($scope.product1);
         $scope.productsList.push($scope.product2);
+        */
+
+
+        //after "add new product" and then decoded
+        $scope.afterDecode = function (codeResult){
+
+            var newProduct = {
+                    ref: codeResult,
+                    qtt: 1
+            };
+
+            $timeout(function() {
+                var alreadyInlist = false;
+                //#1 - check if already in list
+                $scope.productsList.forEach(function(product) {
+                    if(product.ref === newProduct.ref){
+                        //+1 qtt
+                        product.qtt++;
+                        alreadyInlist = true;
+                    }
+                });
+
+                //#2 - store it into order if not in list
+                if(!alreadyInlist){
+                    $scope.productsList.push(newProduct);
+                }
+
+                //#3 - reset input file
+                var input = document.querySelector("input[type=file]");
+                input.value = "";
+            });
 
 
 
 
+        };
 
+        //on Remove product from list
+        $scope.removeProduct = function (ref){
 
+            for (var i = 0; i < $scope.productsList.length; i++){
+                if($scope.productsList[i].ref === ref){
+                    $scope.productsList.splice(i, 1);
+                }
+            }
 
+        };
 
 
 
@@ -71,6 +111,8 @@ app
             }, function(result) {
                 if(result.codeResult) {
                     console.log("result", result.codeResult.code);
+                    $scope.afterDecode(result.codeResult.code);
+
                 } else {
                     console.log("not detected");
                 }
